@@ -40,3 +40,4 @@ Data sets: chicago.csv, new_york_city.csv, washington.csv
 
 ### Credits
 https://github.com/udacity/pdsnd_github.git
+https://docs.google.com/document/d/1DoNBEQJyGHi0qAWpMpQM9lU9_VKh8ubdOY2BmKdvZcc/copy
