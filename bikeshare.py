@@ -200,7 +200,7 @@ def display_data(df):
     """
     start_loc = 0
     while True:
-        # Ask user if they want to see 5 lines of raw data
+        # Ask user if they want to see first 5 lines of raw data
         display_raw_data = input('Do you want to see 5 lines of raw data? Enter yes or no.\n')
         if display_raw_data.lower() == 'yes':
             # Display 5 lines of raw data based on the start_loc
