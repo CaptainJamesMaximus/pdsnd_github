@@ -13,6 +13,41 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+
+    
+
+
+    # Define constants for month names and days of the week
+MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
+DAYS_OF_WEEK = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+
+# Get user input for the city (chicago, new york city, washington) function
+def get_city():
+    while True:
+        city = input('Enter the name of the city (chicago, new york city, washington): ').lower()
+        if city in CITY_DATA:
+            return city
+        else:
+            print('Invalid city name. Please enter a valid city.')
+
+# Get user input for the month (all, january, february, ..., june)
+def get_month():
+    while True:
+        month = input('Enter the name of the month (all, january, february, ..., june): ').lower()
+        if month in ['all'] + MONTHS:
+            return month
+        else:
+            print('Invalid month name. Please enter a valid month.')
+
+# Get user input for the day of the week (all, monday, tuesday, ..., sunday)
+def get_day():
+    while True:
+        day = input('Enter the name of the day of the week (all, monday, tuesday, ..., sunday): ').lower()
+        if day in ['all'] + DAYS_OF_WEEK:
+            return day
+        else:
+            print('Invalid day name. Please enter a valid day.')
+
 def get_filters():
     """
     Asks the user to specify a city, month, and day to analyze.
@@ -23,36 +58,9 @@ def get_filters():
         (str) day - name of the day of the week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-
-    # Define constants for month names and days of the week
-    MONTHS = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
-    DAYS_OF_WEEK = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-
-
-    # Get user input for the city (chicago, new york city, washington)
-    while True:
-        city = input('Enter the name of the city (chicago, new york city, washington): ').lower()
-        if city in CITY_DATA:
-            break
-        else:
-            print('Invalid city name. Please enter a valid city.')
-
-    # Get user input for the month (all, january, february, ..., june)
-    while True:
-        month = input('Enter the name of the month (all, january, february, ..., june): ').lower()
-        if month in MONTHS:
-            break
-        else:
-            print('Invalid month name. Please enter a valid month.')
-
-    # Get user input for the day of the week (all, monday, tuesday, ..., sunday)
-    while True:
-        day = input('Enter the name of the day of the week (all, monday, tuesday, ..., sunday): ').lower()
-        if day in DAYS_OF_WEEK:
-            break
-        else:
-            print('Invalid day name. Please enter a valid day.')
-
+    city = get_city()
+    month = get_month()
+    day = get_day()
     print('-'*40)
     return city, month, day
 
