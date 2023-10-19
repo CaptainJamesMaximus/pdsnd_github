@@ -24,6 +24,11 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
 
+    # Define constants for month names and days of the week
+    MONTHS = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
+    DAYS_OF_WEEK = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+
+
     # Get user input for the city (chicago, new york city, washington)
     while True:
         city = input('Enter the name of the city (chicago, new york city, washington): ').lower()
@@ -35,7 +40,7 @@ def get_filters():
     # Get user input for the month (all, january, february, ..., june)
     while True:
         month = input('Enter the name of the month (all, january, february, ..., june): ').lower()
-        if month in ['all', 'january', 'february', 'march', 'april', 'may', 'june']:
+        if month in MONTHS:
             break
         else:
             print('Invalid month name. Please enter a valid month.')
@@ -43,7 +48,7 @@ def get_filters():
     # Get user input for the day of the week (all, monday, tuesday, ..., sunday)
     while True:
         day = input('Enter the name of the day of the week (all, monday, tuesday, ..., sunday): ').lower()
-        if day in ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']:
+        if day in DAYS_OF_WEEK:
             break
         else:
             print('Invalid day name. Please enter a valid day.')
