@@ -13,36 +13,44 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+
+
 # Define constants for month names and days of the week
 MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
 DAYS_OF_WEEK = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
+# User input validation logic function
+def get_user_input(prompt, valid_options):
+    """
+    Asks the user for input and validates it against a list of valid options.
+
+    Args:
+        prompt (str): The prompt to display to the user.
+        valid_options (list): A list of valid options.
+
+    Returns:
+        str: User input (lowercased and stripped) if it's in the valid options.
+    """
+    while True:
+        user_input = input(prompt).lower().strip()
+        if user_input in valid_options:
+            return user_input
+        else:
+            print('Invalid input, Please try again.')
+
 # Get user input for the city (chicago, new york city, washington) function
 def get_city():
-    while True:
-        city = input('Enter the name of the city (chicago, new york city, washington): ').lower()
-        if city in CITY_DATA:
-            return city
-        else:
-            print('Invalid city name. Please enter a valid city.')
+    return get_user_input('Enter the name of the city (chicago, new york city, washington): ', CITY_DATA)
 
 # Get user input for the month (all, january, february, ..., june)
 def get_month():
-    while True:
-        month = input('Enter the name of the month (all, january, february, ..., june): ').lower()
-        if month in ['all'] + MONTHS:
-            return month
-        else:
-            print('Invalid month name. Please enter a valid month.')
+    valid_months = ['all'] + MONTHS
+    return get_user_input('Enter the name of the month (all, january, february, ..., june): ', valid_months)
 
 # Get user input for the day of the week (all, monday, tuesday, ..., sunday)
 def get_day():
-    while True:
-        day = input('Enter the name of the day of the week (all, monday, tuesday, ..., sunday): ').lower()
-        if day in ['all'] + DAYS_OF_WEEK:
-            return day
-        else:
-            print('Invalid day name. Please enter a valid day.')
+    valid_days = ['all'] + DAYS_OF_WEEK
+    return get_user_input('Enter the name of the day of the week (all, monday, tuesday, ..., sunday): ', valid_days)
 
 def get_filters():
     """
